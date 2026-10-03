@@ -16,15 +16,26 @@ d.appendChild(im);d.appendChild(b);pv.appendChild(d);
 }
 document.getElementById('f').addEventListener('submit',function(e){
 e.preventDefault();
+var n=files.length;
 var t='Hello Sathya Electronics, I am '+document.getElementById('n').value+'. I need: '+document.getElementById('t').value+'. '+document.getElementById('m').value;
-if(files.length)t+=' I have '+files.length+' photo(s) of my TV.';
-function fallback(){
-window.open('https://wa.me/919177638337?text='+encodeURIComponent(t),'_blank');
-st.textContent=files.length?'WhatsApp should open with your message. Tap the attach button in the chat and add your photos.':'';
+if(n)t+=' I will send '+n+' photo(s) of my TV here.';
+var wa='https://wa.me/919177638337?text='+encodeURIComponent(t);
+var mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Macintosh/.test(navigator.userAgent));
+function link(msg){
+st.textContent='';
+st.appendChild(document.createTextNode(msg+' '));
+var a=document.createElement('a');a.href=wa;a.target='_blank';a.rel='noopener';a.textContent='Tap here to open the chat.';
+st.appendChild(a);
 }
-if(files.length&&navigator.canShare&&navigator.canShare({files:files})){
+function chat(){
+window.open(wa,'_blank');
+link(n?'WhatsApp should open with your message. In the chat, tap the attach (paperclip) button and add your '+n+' photo(s). If it did not open,':'WhatsApp should open with your message. If it did not open,');
+}
+if(n&&mobile&&navigator.canShare&&navigator.canShare({files:files})){
 navigator.share({files:files,text:t}).then(function(){
-st.textContent='In the share list, choose WhatsApp, then the chat with Sathya Electronics (91776 38337).';
-}).catch(function(err){if(!err||err.name!=='AbortError')fallback();});
-}else{fallback();}
+link('In the share list, choose WhatsApp and then the Sathya Electronics chat. If that did not work,');
+}).catch(function(err){
+if(err&&err.name==='AbortError'){link('Sharing was cancelled. To send your message without photos,');}else{chat();}
+});
+}else{chat();}
 });
