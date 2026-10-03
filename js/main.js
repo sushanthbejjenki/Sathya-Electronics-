@@ -1,7 +1,20 @@
 var files=[],inp=document.getElementById('ph'),pv=document.getElementById('pv'),st=document.getElementById('st');
 inp.addEventListener('change',function(){
-for(var i=0;i<inp.files.length&&files.length<5;i++){var f=inp.files[i];if(f.type.indexOf('image/')===0&&f.size<15*1048576)files.push(f);}
-inp.value='';draw();
+var jobs=[];
+Array.prototype.slice.call(inp.files).forEach(function(f){
+if(files.length+jobs.length>=5)return;
+if(f.type.indexOf('image/')!==0||f.size>=15*1048576)return;
+jobs.push(f.arrayBuffer().then(function(buf){
+return new File([buf],f.name||'tv-photo.jpg',{type:f.type});
+}).catch(function(){return null;}));
+});
+Promise.all(jobs).then(function(res){
+var bad=false;
+res.forEach(function(x){if(x){if(files.length<5)files.push(x);}else{bad=true;}});
+inp.value='';
+st.textContent=bad?'One photo could not be read. Please choose it again.':'';
+draw();
+});
 });
 function draw(){
 pv.innerHTML='';
