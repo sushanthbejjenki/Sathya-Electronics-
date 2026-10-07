@@ -39,6 +39,11 @@
 <figure><div class="mini d"></div><figcaption><b>Dark or dim side</b>Backlight or panel fault. Needs inspection.</figcaption></figure>
 <figure><div class="mini"><svg viewBox="0 0 160 100" preserveAspectRatio="none"><path d="M70 0 L78 30 L64 48 L84 70 L74 100 M78 30 L110 40 M64 48 L36 58" stroke="#fff" stroke-width="2" fill="none"/></svg></div><figcaption><b>Cracked screen</b>The panel needs to be replaced.</figcaption></figure>
 </div>
+<h3 style="font-size:1.4rem;margin:36px 0 0">Real faults from our workshop</h3>
+<div class="gal">
+<figure class="fig"><img src="images/cof-fault.jpg" alt="TV with a dark vertical band across the picture" loading="lazy"><figcaption><b>COF fault.</b> A dark band cuts through the picture. A fault in the COF strips can leave part of the screen missing.</figcaption></figure>
+<figure class="fig"><img src="images/broken-display.jpg" alt="Large TV with a cracked panel and coloured lines" loading="lazy"><figcaption><b>Cracked panel.</b> Broken glass with coloured lines means the screen has to be replaced.</figcaption></figure>
+</div>
 <p class="note">Every TV is different. We always inspect first and tell you if it can be repaired or if the screen needs replacing.</p>
 </div></section>
 
@@ -104,7 +109,7 @@
 <div class="gal">
 <figure class="fig"><img src="images/bonding-bench.jpg" alt="Bonding machine with lit glass work table, soldering station and monitor" loading="lazy"><figcaption><b>Bonding bench.</b> The enclosed machine sits over a lit glass work table where the TV panel is placed. A soldering and rework station and a monitor are beside it.</figcaption></figure>
 <figure class="fig"><img src="images/magnified-inspection.jpg" alt="Technician inspecting a panel edge on a large monitor connected to a microscope camera" loading="lazy"><figcaption><b>Magnified inspection.</b> A microscope camera shows the panel edge on a large screen, so we can see damaged contacts clearly. Shelves behind hold spare boards and small parts. The workshop is air-conditioned and has a CCTV camera.</figcaption></figure>
-<div class="ph"><div><b>Photo: panels in stock</b>New panels and displays</div></div>
+<figure class="fig"><img src="images/cof-ic-burnt.jpg" alt="Close-up of a COF strip with a burnt chip" loading="lazy"><figcaption><b>A burnt COF chip.</b> The dark burn mark on the chip causes lines or a dead area on the screen. We fix it by bonding a new COF strip.</figcaption></figure>
 </div>
 </div></section>
 
@@ -117,6 +122,10 @@
 <div class="card" style="background:#16233d;border-color:#26324d"><h3>See before you buy</h3><p>Check sound and picture quality in the shop.</p></div>
 </div>
 <div class="sizes" aria-label="Popular sizes"><span style="color:#111">32"</span><span style="color:#111">43"</span><span style="color:#111">50"</span><span style="color:#111">55"</span><span style="color:#111">65"</span></div>
+<div class="media">
+<figure class="fig"><img src="images/new-display.jpg" alt="New TV display panel in its packaging" loading="lazy"><figcaption><b>New displays available.</b> Brand new panels for screen replacement.</figcaption></figure>
+<figure class="fig vid"><video controls playsinline preload="none" poster="images/replacement-poster.jpg"><source src="videos/screen-replacement.mp4" type="video/mp4"></video><figcaption><b>Watch a screen replacement.</b> Our technician fits a new display panel.</figcaption></figure>
+</div>
 </div></section>
 
 <section id="process"><div class="wrap">
@@ -132,15 +141,17 @@
 <section id="contact" style="background:var(--surface);border-top:1px solid var(--line)"><div class="wrap contact">
 <div>
 <h2>Book a visit</h2>
-<p class="lead">Fill this in and add photos of your TV if you can. It opens WhatsApp with your message ready to send.</p>
+<p class="lead">Fill this in and add photos or a short video of your TV if you can. It opens WhatsApp with your message ready to send.</p>
 <form id="f">
 <label>Your name<input id="n" required autocomplete="name"></label>
 <label>What do you need?<select id="t"><option>TV repair with home pick-up</option><option>TV repair at the shop</option><option>Buy a new TV</option><option>TV installation</option></select></label>
 <label>TV brand and problem<textarea id="m" rows="3" placeholder="Example: Samsung 43 inch, no picture but sound works"></textarea></label>
-<label class="drop"><span><b>Add photos of your TV</b></span><span>Tap to choose up to 5 photos of the screen or the fault</span><input id="ph" type="file" accept="image/*" multiple></label>
+<label class="drop"><span><b>Add photos or videos of your TV</b></span><span>Tap to choose up to 5 photos or short videos of the screen or the fault</span><input id="ph" type="file" accept="image/*,video/*" multiple></label>
 <div id="pv" aria-live="polite"></div>
 <button class="btn" type="submit">Send on WhatsApp</button>
+<p class="hint">WhatsApp cannot attach files by itself. After it opens, tap the paperclip in the chat to add them.</p>
 <p id="st" role="status"></p>
+<button type="button" class="btn alt" id="sh" hidden>Share photos and videos on WhatsApp</button>
 </form>
 </div>
 <div class="info">
